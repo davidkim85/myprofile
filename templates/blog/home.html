@@ -1,0 +1,19 @@
+{% extends 'blog/base/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block content %}
+ {% include 'blog/blog/includes/header.html' %}
+ {% include 'blog/blog/includes/hero.html' %}
+  <main id="main">
+   {% include 'blog/blog/includes/aboutSection.html' %}
+   {% include 'blog/blog/includes/servicesSection.html' %}
+   {% include 'blog/blog/includes/counterSection.html' %}
+   {% include 'blog/blog/includes/blogSection.html' %}
+   {% include 'blog/blog/includes/contact.html' %}
+  </main><!-- End #main -->
+ {% include 'blog/blog/includes/footer.html' %}
+    {% include 'blog/blog/includes/preloader.html' %}
+{% endblock %}
+
+
+

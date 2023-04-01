@@ -1,0 +1,8 @@
+{% load static %}
+<ul>
+    {% for tag in tags %}
+        <li>
+            <a href="{% url "blog:post_list_by_tag" tag.slug %}">{{ tag.name }}</a>
+        </li>
+    {% endfor %}
+</ul>

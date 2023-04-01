@@ -1,0 +1,59 @@
+{% load blog_tags %}
+{% load static %}
+<!-- ======= Blog Section ======= -->
+    <section id="blog" class="blog-mf sect-pt4 route">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+
+            <div class="title-box text-center">
+              <h3 class="title-a">
+               My Blog Presentation
+              </h3>
+              <p class="subtitle-a">
+                <blockquote class="blockquote">First, solve the problem. Then, write the code.<cite> – John Johnson</cite></blockquote>
+              </p>
+              <div class="line-mf"></div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+        {% for post in posts %}
+        <div class="col-md-4">
+            <div class="card card-blog" style="margin-bottom: 18px">
+              <div class="card-img">
+                <a href="{{ post.get_absolute_url }}">
+                    <img src="{{post.image}}" alt="" class="img-fluid" style="width: 100%"></a>
+              </div>
+              <div class="card-body">
+                <div class="card-category-box">
+                  <div class="card-category">
+                      {% for tag in post.tags.names %}
+                    <h6 class="category">{{ tag }}</h6>
+                          {% endfor %}
+                  </div>
+                </div>
+                <h3 class="card-title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+                <p class="card-description">
+                  {{post.preArticle}}
+                </p>
+              </div>
+              <div class="card-footer">
+                <div class="post-author">
+                  <a href="#">
+                    <img src="{% static "assets/img/testimonial-2.jpg" %}" alt="" class="avatar rounded-circle">
+                    <span class="author">{{ post.author }}</span>
+                  </a>
+                </div>
+                <div class="post-date">
+                  <span class="bi bi-clock"></span> {{ post.publish |timesince}}
+                </div>
+              </div>
+         </div>
+            </div>
+        {% endfor %}
+
+                </div>
+</div>
+    </section><!-- End Blog Section -->

@@ -1,0 +1,24 @@
+{% load static %}
+
+<!-- ======= Hero Section ======= -->
+
+  <div id="hero" class="hero route bg-image" style="background-image: url({% static "assets/img/hero-bg.jpg" %})">
+    <div class="overlay-itro"></div>
+    <div class="hero-content display-table">
+      <div class="table-cell">
+        <div class="container">
+            {% if  sent%}
+        <h1 class="hero-title mb-4">Thank you!</h1>
+        <p class="hero-subtitle"><span class="typed" data-typed-items="Message has been send"></span></p>
+            {% elif user.is_authenticated %}
+        <h1 class="hero-title mb-4">Welcome {{user.first_name}}</h1>
+        <p class="hero-subtitle"><span class="typed" data-typed-items="You has been authenticated,Now you can leave a comments"></span></p>
+            {% else %}
+        <h1 class="hero-title mb-4">I am David Furman</h1>
+        <p class="hero-subtitle"><span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
+            {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div><!-- End Hero Section -->
